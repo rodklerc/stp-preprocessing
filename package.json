@@ -1,0 +1,20 @@
+{
+  "name": "stp-preprocessing",
+  "version": "0.0.7",
+  "description": "Preprocessor for CSA + Scalable Transfer Patterns",
+  "main": "lib/stp-preprocessing.js",
+  "keywords": [
+    "journey planning",
+    "route planning",
+    "public transit",
+    "public transport",
+    "open transport"
+  ],
+  "author": "Robin Deklerck",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.8.1",
+    "path": "^0.12.7",
+    "mongodb": "~1.4.29"
+  }
+}
