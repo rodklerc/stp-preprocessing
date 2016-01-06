@@ -2,6 +2,7 @@
 
 var Fetcher = require('lc-client').Fetcher,
     GraphBuilder = require('../lib/buildGraph.js'),
+    MergeCluster = require('../lib/cluster.js'),
     path = require('path'),
     fs = require('fs'),
     program = require('commander'),
@@ -15,5 +16,5 @@ var fetcher = new Fetcher({"entrypoints" : ["http://belgianrail.linkedconnection
 var graphBuilder = new GraphBuilder(null);
 fetcher.buildConnectionsStream({"departureTime": new Date("2015-10-10T04:00")},
                                function (connectionStream) {
-                                  connectionStream.pipe(graphBuilder).pipe(fs.createWriteStream('graph.txt'));
+                                  connectionStream.pipe(graphBuilder).pipe(new ClusterAlgorithm(null));
                                });
