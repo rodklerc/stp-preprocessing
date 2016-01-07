@@ -3,7 +3,7 @@
 var Fetcher = require('lc-client').Fetcher,
     GraphBuilder = require('../lib/buildGraph.js'),
     ClusterAlgorithm = require('../lib/cluster.js'),
-    CalculateLocalTPs = require('../lib/local.js'),
+    CalculateLocalPaths = require('../lib/localPaths.js'),
     path = require('path'),
     fs = require('fs'),
     program = require('commander'),
@@ -24,7 +24,7 @@ c._flush(function () { });*/
 // -- START DEBUG --
 fs.createReadStream('nmbs100.txt')
   .pipe(JSONStream.parse())
-  .pipe(new CalculateLocalTPs(new Date("2015-10-10T10:00"), {"entrypoints" : ["http://belgianrail.linkedconnections.org"]}));
+  .pipe(new CalculateLocalPaths(new Date("2015-10-10T10:00"), {"entrypoints" : ["http://belgianrail.linkedconnections.org"]}));
 // -- END DEBUG --
 
 /*var fetcher = new Fetcher({"entrypoints" : ["http://belgianrail.linkedconnections.org/connections"]});
@@ -34,5 +34,5 @@ fetcher.buildConnectionsStream({"departureTime": new Date("2015-10-10T04:00")},
                                   connectionStream
                                     .pipe(graphBuilder)
                                     .pipe(new ClusterAlgorithm(100))
-                                    .pipe(new CalculateLocalTPs(new Date("2015-10-10T04:00"), null));
+                                    .pipe(new CalculateLocalPaths(new Date("2015-10-10T04:00"), null));
                                });*/
