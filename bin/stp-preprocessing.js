@@ -10,6 +10,7 @@ var Fetcher = require('lc-client').Fetcher,
     assert = require('assert'),
     JSONStream = require('JSONStream');
 var LocalPathBuilder = require('../lib/localPathBuilder.js');
+var DAGBuilder = require('../lib/dagBuilder.js');
 
 // TODO:
 // 1. Input parameters: start and end date to limit the number of connections
@@ -23,13 +24,13 @@ c._flush(function () { });*/
 // -- END DEBUG CLUSTERING --
 
 // -- START DEBUG LOCAL TPS --
-fs.createReadStream('nmbs100.txt')
+/*fs.createReadStream('nmbs100.txt')
   .pipe(JSONStream.parse())
-  .pipe(new CalculateLocalPaths(new Date("2015-10-10T10:00"), {"entrypoints" : ["http://belgianrail.linkedconnections.org"]}));
+  .pipe(new CalculateLocalPaths(new Date("2015-10-10T10:00"), {"entrypoints" : ["http://belgianrail.linkedconnections.org"]}));*/
 // -- END DEBUG LOCAL TPS --
 
 // -- START DEBUG LOCAL TPS --
-/*var inverseClustering = {};
+var inverseClustering = {};
 inverseClustering[1] = 1;
 inverseClustering[2] = 1;
 inverseClustering[3] = 1;
@@ -41,7 +42,15 @@ inverseClustering[8] = 3;
 inverseClustering[9] = 1;
 inverseClustering[10] = 1;
 inverseClustering[11] = 1;
-var lpb = new LocalPathBuilder(1, inverseClustering);
+
+// test dag builder
+var dg = new DAGBuilder();
+dg.write(['1',2,3,4,5]);
+dg.write(['6',7,3,8,5]);
+dg.end();
+
+// TODO why doenst pipe work?
+/*var lpb = new LocalPathBuilder(1, inverseClustering).pipe(new DAGBuilder());
 lpb.write({"@id": 1,
            departureStop: 1,
            arrivalStop: 2,
