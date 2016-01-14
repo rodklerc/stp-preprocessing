@@ -15,6 +15,5 @@ fetcher.buildConnectionsStream({"departureTime": new Date("2015-10-10T10:00")},
                                     .pipe(graphBuilder)
                                     .pipe(new ClusterAlgorithm(100))
                                     .pipe(new CalculateLocalPaths(new Date("2015-10-10T10:00"),
-                                                                  {"entrypoints" : ["http://belgianrail.linkedconnections.org/connections"]})
-                                    .pipe(process.stdout);
+                                                                  {"entrypoints" : ["http://belgianrail.linkedconnections.org/connections"]}));
                                });
