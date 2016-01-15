@@ -15,7 +15,6 @@
   "bin": {
     "lcc": "./bin/stp-preprocessing.js"
   },
-  "main": "lib/stp-preprocessing.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rodklerc/stp-preprocessing.git"
@@ -24,10 +23,11 @@
     "url": "https://github.com/rodklerc/stp-preprocessing/issues"
   },
   "dependencies": {
-    "lc-client": "^0.0.x",
-    "csa": "^0.0.x",
     "async": "~1.5.1",
-    "underscore": "~1.8.3",
-    "priorityqueuejs": "~1.0.0"
+    "csa": "^0.0.x",
+    "lc-client": "^0.0.x",
+    "priorityqueuejs": "~1.0.0",
+    "q": "^1.4.1",
+    "underscore": "~1.8.3"
   }
 }
