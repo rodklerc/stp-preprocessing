@@ -12,7 +12,7 @@ var fetcher = new Fetcher({"entrypoints" : ["http://belgianrail.linkedconnection
 var graphBuilder = new GraphBuilder();
 fetcher.buildConnectionsStream({"departureTime": new Date("2015-10-10T10:00")},
                                function (connectionStream) {
-                                 var lpb = new CalculateLocalPaths(new Date("2015-10-10T06:00"),
+                                 var lpb = new CalculateLocalPaths(new Date("2015-10-10T00:00"),
                                                                {"entrypoints" : ["http://belgianrail.linkedconnections.org/connections"]});
                                  lpb.on('data', function (result) {
                                    fs.writeFileSync('stp-output.json',
