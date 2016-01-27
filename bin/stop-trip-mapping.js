@@ -21,7 +21,13 @@ program
   .parse(process.argv);
 
 var entryPoints = {"entrypoints" : ["http://belgianrail.linkedconnections.org/connections"]};
-var startTime = new Date("2015-10-10T03:00");
+var startTime = new Date("2016-01-08T07:29");
+
+if (program.entrypoints) entryPoints = {"entrypoints" : program.entrypoints};
+if (program.startTime) startTime = new Date(program.startTime);
+
+console.log(entryPoints);
+console.log(startTime);
 
 if (typeof outputFilename === 'undefined') {
   console.error('Please specify an output file.');
