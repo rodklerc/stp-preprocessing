@@ -99,10 +99,10 @@ is done for traditional transfer patterns) may thus be considered to be "lossy".
 Note that the presence of these paths will only influence the efficiency of
 querying, not the correctness.
 
-Building stop to trip mapping
-=============================
+Building stop to route mapping
+==============================
 
-The script `bin/stop-trip-mapping.js` builds a mapping of pairs of stops to
-trip ids. `(s,t)` is mapped to all trips containing a sequence `s,x_1,...,x_n,t`
+The script `bin/stop-route-mapping.js` builds a mapping of pairs of stops to
+route ids. `(s,t)` is mapped to all routes containing a sequence `s,x_1,...,x_n,t`
 of stops (`n>=0`). So in a certain sense this mapping represents the transitive
-closure of the connections on a trip.
+closure of the connections on each trip for this route.
